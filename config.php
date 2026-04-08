@@ -27,3 +27,16 @@ define('ALLOWED_IMAGE_TYPES', ['image/jpeg', 'image/png', 'image/webp', 'image/g
 define('ALLOWED_IMAGE_EXTENSIONS', ['jpg', 'jpeg', 'png', 'webp', 'gif']);
 define('MAX_IMAGE_SIZE', 5 * 1024 * 1024); // 5MB
 define('MAX_IMAGES_PER_AD', 5);
+
+
+$host = $_ENV['MYSQLHOST'];
+$user = $_ENV['MYSQLUSER'];
+$password = $_ENV['MYSQLPASSWORD'];
+$database = $_ENV['MYSQLDATABASE'];
+$port = $_ENV['MYSQLPORT'];
+
+$con = mysqli_connect($host, $user, $password, $database, $port);
+
+if (!$con) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
